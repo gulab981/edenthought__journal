@@ -28,7 +28,7 @@ load_dotenv()
 SECRET_KEY = os.getenv("SECRET_KEY") 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -145,6 +145,6 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
 EMAIL_USE_TLS = 'True'
 
-EMAIL_HOST_USER = 'gulabshahsaifi@gmail.com'
-EMAIL_HOST_PASSWORD = 'oukxxhqbesicuupg'
-DEFAULT_FROM_EMAIL = 'gulabshahsaifi@gmail.com'
+EMAIL_HOST_USER = 'your-email'
+EMAIL_HOST_PASSWORD = 'email-host-two-factor-authentication-password'
+DEFAULT_FROM_EMAIL = 'your-email'
