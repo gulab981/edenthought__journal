@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/cyborg/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Edenthought | Register</title>
+</head>
+
+<body>
+    <br>
+    <div class="container p-5 form-layout border border-dark">
+        <h3>Create Your Account &#128522;</h3>
+        <h5>Share Your Thoughts Today.</h5>
+        <hr>
+        <br>
+        <form method="POST" autocomplete="off">
+            {% csrf_token %}
+            {{form.as_p}}
+            <a href="{% url 'login' %}" class="text-decoration-none">Already have an account ?</a>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-dark form-control"
+                value="&nbsp;Create Account &nbsp;"><i class="fa fa-user-plus" aria-hidden="true"></i> &nbsp; Create Account</button>
+                <a href="{% url '' %}" class="btn form-control btn-dark mt-2">Cancel</a>
+        </form>
+    </div>
+    <br>
+</body>
+
+</html>

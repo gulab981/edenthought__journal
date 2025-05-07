@@ -1,0 +1,25 @@
+{% extends 'journal/navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {% block content %}
+    <div class="container mt-5 p-5 form-layout border border-dark">
+        <h3>Delete Account:&#128546;</h3>
+        <h5 class="float-center text-center mt-4">Are you sure want to delete your account ?</h5>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="submit" class="btn btn-dark form-control mt-3" value="Delete" >
+            <a href="{% url 'profile' %}" class="btn btn-dark form-control mt-2">Cencel</a>
+        </form>
+    </div>
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+{% extends 'journal/navbar.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/cyborg/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Edenthoughts | Thoughts</title>
+</head>
+
+<body>
+    {% block content %}
+
+    {% for message in messages %}
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+    <p id="message-text" class="alert alert-dark float-center text-center text-light message-text"><i class="fa fa-check" aria-hidden="true"></i> &nbsp;{{message}}</p>
+    {% endif %}
+    {% endfor %}
+
+    <div class="container mt-2 float-center text-center">
+        <h2>THOUGHTS</h2>
+        <hr>
+    </div>
+    <div class="container mt-5">
+        <div class="row">
+            {% for thought in thoughts %}
+            <div class="col col-12 col-sm-12 col-md-6 col-lg-4">
+                <div class="card text-center">
+                    <div class="card-header ">
+                        {{thought.user}}
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{thought.title}}</h5>
+                        <p class="card-text">{{thought.content}}</p>
+                        <a href="{% url 'update-thought' thought.id %}" class="btn btn-dark"><i class="fa fa-sticky-note" aria-hidden="true"></i> &nbsp;Edit</a>
+                        <a href="{% url 'delete-thought' thought.id %}" class="btn btn-dark"><i class="fa fa-trash" aria-hidden="true"></i> &nbsp;Delete</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        {{thought.date_posted}}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="{% static 'js/app.js' %}"></script>
+    {% endblock %}
+    
+</body>
+
+</html>

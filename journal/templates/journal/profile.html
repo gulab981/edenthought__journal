@@ -1,0 +1,43 @@
+{% extends 'journal/navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edenthought | Profile</title>
+</head>
+
+<body>
+    {% block content %}
+    <div class="container mt-5 p-5 form-layout border border-dark">
+        <h3>Profile Management: &#128521;</h3>
+        <h5>Change Your Information.</h5>
+        <hr>
+        <br>
+        <form method="POST" autocomplete="off">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" class="btn btn-dark form-control" value="&nbsp;Update Info &nbsp;">
+            <!-- <a href="{% url '' %}" class="btn form-control btn-dark mt-2">Cancel</a> -->
+        </form>
+        <hr>
+        <p>Upload Your profile picture down below.</p>
+        <form method="POST" autocomplete="off" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form_2.as_p}}
+            <input type="submit" class="btn btn-dark  form-control" value="&nbsp;Update Profile Picture &nbsp;">
+            <a href="{% url 'dashboard' %}" class="btn form-control btn-dark mt-2">Cancel</a>
+        </form>
+        <hr>
+        <h3>Delete Account:&#128546;</h3>
+        <h5 class="float-center text-center">Do you want to delete your account ?</h5>
+        <form method="POST">
+            {% csrf_token %}
+            <a href="{% url 'delete-account' %}" class="btn btn-dark form-control mt-2" type="submit" >Go...</a>
+        </form>
+    </div>
+    {% endblock %}
+</body>
+
+</html>

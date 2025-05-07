@@ -1,0 +1,28 @@
+{% extends 'journal/navbar.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edentought | Dashboard</title>
+</head>
+
+<body>
+    {% block content %}
+    <div class="container p-5 form-layout mt-3 border border-dark">
+        <h2 class="float-center text-center text-uppercase">{{user}}</h2>
+        <p class="float-center text-center">Welcome <span class="text-capitalize">{{user}}</span> This is your
+            dashboard.</p>
+        <div class="container float-center text-center ">
+            <img src="{{profile_pic.profile_pic.url}}" class="" style="width: 200px; height: 200px; border-radius: 50%;"
+                alt="">
+        </div>
+        <br>
+    </div>
+
+    {% endblock %}
+</body>
+
+</html>

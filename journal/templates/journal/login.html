@@ -1,0 +1,46 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/cyborg/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Edenthought | Login</title>
+</head>
+
+<body>
+
+    {% for message in messages %}
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+    <p id="message-text" class="alert alert-dark float-center text-center text-light message-text"><i class="fa fa-check" aria-hidden="true"></i> &nbsp;{{message}}</p>
+    {% endif %}
+    {% endfor %}
+
+    <div class="container p-5 form-layout border border-dark mt-5">
+        <center>
+            <h3>Login To Your Account. &#128526;</h3>
+        </center>
+        <hr>
+
+        <br>
+        <form method="post" autocomplete="off">
+            {% csrf_token %}
+            {{form.as_p}}
+            <a href="{% url 'reset_password' %}" class="text-decoration-none">Forgotten Your password ?</a>
+            <br>
+            <a href="{% url 'register' %}" class="text-decoration-none">Don't have an account ?</a>
+            <br><br>
+            <button type="submit" class="form-control btn btn-dark"><i class="fa fa-key" aria-hidden="true"></i>
+                &nbsp;Login</button>
+            <a href="{% url '' %}" class="btn form-control btn-dark mt-2">Cancel</a>
+        </form>
+    </div>
+    <script src="{% static 'js/app.js' %}"></script>
+</body>
+
+</html>

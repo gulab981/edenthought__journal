@@ -1,0 +1,27 @@
+{% extends 'journal/navbar.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/cyborg/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Edenthought | Create Thought</title>
+</head>
+<body>
+    {% block content %}
+        <div class="container p-5 form-layout border border-dark mt-5">
+            <h4>Create a Thought &#128512;</h4>
+            <p>You may create a thought down below.</p>
+            <form method="POST" autocomplete="off">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button class="btn btn-dark mt-3 form-control" type="submit" value="Create Thought"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp;Create Thought</button>
+                <a class="btn btn-dark mt-2 form-control" href="{% url 'dashboard' %}">Cancel</a>
+            </form>
+        </div>
+    {% endblock %}
+</body>
+</html>

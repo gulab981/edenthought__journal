@@ -1,0 +1,58 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edenthought | User</title>
+    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/cyborg/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
+        <a class="navbar-brand main-heading">
+            &nbsp; Edenthought
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse text-center" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+                &nbsp; &nbsp; &nbsp;
+                <li class="nav-link">
+                    <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+                </li>
+                &nbsp; &nbsp; &nbsp;
+                <li class="nav-link">
+                    <a class="nav-link" href="{% url 'create-thought' %}">Create Thought</a>
+                </li>
+                &nbsp; &nbsp; &nbsp;
+                <li class="nav-link">
+                    <a class="nav-link" href="{% url 'my-thoughts' %}">My Thoughts</a>
+                </li>
+                &nbsp; &nbsp; &nbsp;
+                <li class="nav-link">
+                    <a class="nav-link" href="{% url 'profile' %}">My Profile</a>
+                </li>
+                &nbsp; &nbsp; &nbsp;
+                <li class="nav-link">
+                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                </li>
+                &nbsp; &nbsp; &nbsp;
+            </ul>
+        </div>
+    </nav>
+    {% block content %}
+
+    {% endblock %}
+    <script src="{% static 'js/app.js' %}"></script>
+</body>
+
+</html>
